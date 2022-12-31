@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Tapestry</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+            <div class="navbar">
+              <a href="index.html">Home</a>
+              <div class="dropdown">
+                <button class="dropbtn" onclick="innerFunction()">Inner Planets
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="innerDropdown">
+                  <a href="mercury.html">Mercury</a>
+                  <a href="venus.html">Venus</a>
+                  <a href="earth.html">Earth</a>
+                  <a href="mars.html">Mars</a>
+                </div>
+              </div> 
+              <div class="dropdown">
+                <button class="dropbtn" onclick="outerFunction()">Outer Planets
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="outerDropdown">
+                  <a href="jupiter.html">Jupiter</a>
+                  <a href="saturn.html">Saturn</a>
+                  <a href="uranus.html">Uranus</a>
+                  <a href="neptune.html">Neptune</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn" onclick="othersFunction()">Others
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="othersDropdown">
+                  <a href="sun.html">Sun</a>
+                  <a href="moon.html">Moon</a>
+                  <a href="pluto.html">Pluto</a>
+                </div>
+              </div>
+              <a href="contact.html">Contact</a>
+
+              <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button type="submit" id="search-button">🔍</button>
+              </form>
+            </div>
+
+        </header>
+    
+<!--Full Screen Video Background -->
+
+    <video autoplay muted loop id="myVideo">
+        <source src="assets/vid/space2.mp4" type="video/mp4">
+      </video>
+
+     <!--Button to take user to top of page-->
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+
+    <!--JS for the buttons functuality-->
+
+    <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    // Inner dropdown function
+function innerFunction() {
+  document.getElementById("innerDropdown").classList.toggle("show");
+}
+
+// Outer dropdown function
+function outerFunction() {
+  document.getElementById("outerDropdown").classList.toggle("show");
+}
+
+// Others dropdown function
+function othersFunction() {
+  document.getElementById("othersDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var innerDropdown = document.getElementById("innerDropdown");
+    if (innerDropdown.classList.contains('show')) {
+      innerDropdown.classList.remove('show');
+    }
+    var outerDropdown = document.getElementById("outerDropdown");
+    if (outerDropdown.classList.contains('show')) {
+      outerDropdown.classList.remove('show');
+    }
+    var othersDropdown = document.getElementById("othersDropdown");
+    if (othersDropdown.classList.contains('show')) {
+      othersDropdown.classList.remove('show');
+    }
+  }
+}
+// Searchb Bar for the page, if a word is not found an error alert will show up
+
+let searchForm = document.querySelector('#search-form');
+let searchInput = document.querySelector('#search-input');
+let searchButton = document.querySelector('#search-button');
+
+searchForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent form from refreshing the page
+  let searchWord = searchInput.value;
+  if (window.find(searchWord)) { // search for the word in the page
+    window.scrollTo(0,0); // start searching from the top of the page
+    window.find(searchWord); // move to the location of the word
+  } else {
+    alert('Word not found, try again');
+  }
+});
+
+    </script>
+    
+  <!--Content starts here-->
+
+  <!--<div id="content">-->
+    <br><br>
+    <br><br>
+    
+    <h2>Welcome to Celestial Tapestry</h2>
+        <br><br>
+        <br><br><br>
+
+        <h1><strong>About</strong></h1>
+
+        <p> <em>Celestial Tapestry</em> is a place where visitors can come to learn about the wonders of the solar system and beyond. 
+            It's a destination for anyone who's curious about the cosmos and wants to explore the mysteries of the universe. 
+            From the latest scientific discoveries to stunning images and interactive content, this is a place where visitors can discover all the amazing things that the celestial realm has to offer.
+            Whether you're a seasoned space enthusiast or just someone who's fascinated by the cosmos, here is the perfect place to satisfy your curiosity and explore the vast and wondrous world of the universe.
+        </p>
+
+        <br><br>
+        <br><br>
+
+        <!-- Planets & stars and a brief describtion for each one-->
+
+    <h1>Solar system</h1>
+            <br>
+        <p>
+            Our solar system is a collection of celestial bodies that orbit the sun, including eight planets, five dwarf planets, and numerous moons, asteroids, comets, meteoroids, and artificial satellites. 
+            The sun, a giant star at the center of the solar system, powers the orbits of all these objects and provides the energy that sustains life on Earth. 
+            Each of the planets has its own unique characteristics and features, making the solar system a diverse and fascinating place full of mysteries and wonders.
+        </p>
+
+        <br><br>
+        <br><br>
+
+        <h1>Inner & Outter Planets</h1>
+        <br>
+            <p>
+                The inner planets of the solar system are those that are closer to the sun and are made up of mostly rock and metal. 
+                While The outer planets of the solar system are those that are farther from the sun and are made up of mostly gas and ice. 
+            </p>
+
+        <br><br>
+        <br><br>
+
+        <h1>Other small solar system bodies</h1>
+        <br>
+        <p>
+            This term includes objects such as dwarf planets, asteroids, comets, and other small celestial bodies that orbit the Sun. 
+            These objects are typically much smaller than planets and often have irregular shapes. <br>
+            They are also often referred to as "minor planets" or "minor bodies."
+        </p>
+
+        <br><br>
+        <br><br>
+
+            <table>
+              <tr>
+                <th>Object</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>Stars</td>
+                <td>These are celestial bodies that produce light and heat through nuclear fusion in their cores.</td>
+              </tr>
+              <tr>
+                <td>Moons</td>
+                <td>These are celestial bodies that orbit around planets. Many planets in our solar system have moons, including Earth, which has one moon.</td>
+              </tr>
+              <tr>
+                <td>Asteroids</td>
+                <td>These are small, rocky objects that orbit the sun. There are millions of asteroids in our solar system, most of which are located in the asteroid belt between Mars and Jupiter.</td>
+              </tr>
+              <tr>
+                <td>Comets</td>
+                <td> These are small, icy objects that orbit the sun. They are made up of dust, ice, and gas, and they often have a bright coma (a glowing halo) and a long, bright tail.</td>
+              </tr>
+              <tr>
+                <td>Meteoroids</td>
+                <td>These are small, rocky objects that orbit the sun. They can range in size from a grain of sand to a mountain. When a meteoroid enters Earth's atmosphere, it becomes a meteor.</td>
+              </tr>
+              <tr>
+                <td>Galaxies</td>
+                <td>These are huge collections of stars, gas, dust, and dark matter that are held together by gravity. Our galaxy, the Milky Way, contains billions of stars.</td>
+              </tr>
+              <tr>
+                <td>Black holes</td>
+                <td>These are regions of space where the gravitational pull is so strong that nothing, not even light, can escape. There are three types of black holes: stellar, intermediate, and supermassive.</td>
+              </tr>
+            </table>
+          
+        <br><br>
+        <br><br>
+        <br><br>
+            
+        <footer>
+            <div class="icon-container">
+              <a href="https://www.instagram.com/gorgeoushahed/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/gorgeoushahed" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="mailto:shahad.almazrou@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+            </div>
+            <br>
+            <p>Developed with ❤  by Shahed Almazroua &copy2022</p>
+          </footer>
+
+</body>
+</html>

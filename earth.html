@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Tapestry: Earth</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <button class="dropbtn" onclick="innerFunction()">Inner Planets
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="innerDropdown">
+              <a href="mercury.html">Mercury</a>
+              <a href="venus.html">Venus</a>
+              <a href="earth.html">Earth</a>
+              <a href="mars.html">Mars</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn" onclick="outerFunction()">Outer Planets
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="outerDropdown">
+              <a href="jupiter.html">Jupiter</a>
+              <a href="saturn.html">Saturn</a>
+              <a href="uranus.html">Uranus</a>
+              <a href="neptune.html">Neptune</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn" onclick="othersFunction()">Others
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="othersDropdown">
+              <a href="sun.html">Sun</a>
+              <a href="moon.html">Moon</a>
+              <a href="pluto.html">Pluto</a>
+            </div>
+          </div>
+          <a href="contact.html">Contact</a>
+          <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit" id="search-button">🔍</button>
+          </form>
+        </div>
+
+    </header>
+
+    <!--Full Screen Video Background -->
+
+    <video autoplay muted loop id="earthVideo">
+        <source src="assets/vid/earth.mp4" type="video/mp4">
+      </video>
+
+   <!--Button to take user to top of page-->
+
+   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+
+   <!--JS for the buttons functuality-->
+
+   <script>
+   // Get the button
+   let mybutton = document.getElementById("myBtn");
+   
+   // When the user scrolls down 20px from the top of the document, show the button
+   window.onscroll = function() {scrollFunction()};
+   
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   
+   // When the user clicks on the button, scroll to the top of the document
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+   // Inner dropdown function
+function innerFunction() {
+  document.getElementById("innerDropdown").classList.toggle("show");
+}
+
+// Outer dropdown function
+function outerFunction() {
+  document.getElementById("outerDropdown").classList.toggle("show");
+}
+
+// Others dropdown function
+function othersFunction() {
+  document.getElementById("othersDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var innerDropdown = document.getElementById("innerDropdown");
+    if (innerDropdown.classList.contains('show')) {
+      innerDropdown.classList.remove('show');
+    }
+    var outerDropdown = document.getElementById("outerDropdown");
+    if (outerDropdown.classList.contains('show')) {
+      outerDropdown.classList.remove('show');
+    }
+    var othersDropdown = document.getElementById("othersDropdown");
+    if (othersDropdown.classList.contains('show')) {
+      othersDropdown.classList.remove('show');
+    }
+  }
+}
+// Searchb Bar for the page, if a word is not found an error alert will show up
+
+let searchForm = document.querySelector('#search-form');
+let searchInput = document.querySelector('#search-input');
+let searchButton = document.querySelector('#search-button');
+
+searchForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent form from refreshing the page
+  let searchWord = searchInput.value;
+  if (window.find(searchWord)) { // search for the word in the page
+    window.scrollTo(0,0); // start searching from the top of the page
+    window.find(searchWord); // move to the location of the word
+  } else {
+    alert('Word not found, try again');
+  }
+});
+
+   </script>
+   <br><br>
+   <br><br>
+
+   <h1><strong>Earth</strong></h1>
+            <br>
+            <p>
+                Earth is the third planet from the sun, and it's the only known place in the universe where life exists. 
+                From its towering mountain ranges to its deep oceans, Earth is a diverse and dynamic world. 
+                It has a unique atmosphere that's rich in oxygen, making it the perfect place for life to thrive. But it's not just the planet itself that's special – 
+                it's also the creatures that call it home. From the tiniest microbes to the tallest trees, Earth is teeming with life. 
+                It's a place of endless wonder and discovery, and it's easy to see why we call it home.
+            </p>
+
+            <br><br>
+            
+</body>
+</html>

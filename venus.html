@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Tapestry: Venus</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <button class="dropbtn" onclick="innerFunction()">Inner Planets
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="innerDropdown">
+              <a href="mercury.html">Mercury</a>
+              <a href="venus.html">Venus</a>
+              <a href="earth.html">Earth</a>
+              <a href="mars.html">Mars</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn" onclick="outerFunction()">Outer Planets
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="outerDropdown">
+              <a href="jupiter.html">Jupiter</a>
+              <a href="saturn.html">Saturn</a>
+              <a href="uranus.html">Uranus</a>
+              <a href="neptune.html">Neptune</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn" onclick="othersFunction()">Others
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="othersDropdown">
+              <a href="sun.html">Sun</a>
+              <a href="moon.html">Moon</a>
+              <a href="pluto.html">Pluto</a>
+            </div>
+          </div>
+          <a href="contact.html">Contact</a>
+          <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit" id="search-button">🔍</button>
+          </form>
+        </div>
+
+    </header>
+
+    <!--Full Screen Video Background -->
+
+    <video autoplay muted loop id="venusVideo">
+        <source src="assets/vid/venus.mp4" type="video/mp4">
+      </video>
+
+   <!--Button to take user to top of page-->
+
+   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+
+   <!--JS for the buttons functuality-->
+
+   <script>
+   // Get the button
+   let mybutton = document.getElementById("myBtn");
+   
+   // When the user scrolls down 20px from the top of the document, show the button
+   window.onscroll = function() {scrollFunction()};
+   
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   
+   // When the user clicks on the button, scroll to the top of the document
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+   // Inner dropdown function
+function innerFunction() {
+  document.getElementById("innerDropdown").classList.toggle("show");
+}
+
+// Outer dropdown function
+function outerFunction() {
+  document.getElementById("outerDropdown").classList.toggle("show");
+}
+
+// Others dropdown function
+function othersFunction() {
+  document.getElementById("othersDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var innerDropdown = document.getElementById("innerDropdown");
+    if (innerDropdown.classList.contains('show')) {
+      innerDropdown.classList.remove('show');
+    }
+    var outerDropdown = document.getElementById("outerDropdown");
+    if (outerDropdown.classList.contains('show')) {
+      outerDropdown.classList.remove('show');
+    }
+    var othersDropdown = document.getElementById("othersDropdown");
+    if (othersDropdown.classList.contains('show')) {
+      othersDropdown.classList.remove('show');
+    }
+  }
+}
+// Searchb Bar for the page, if a word is not found an error alert will show up
+
+let searchForm = document.querySelector('#search-form');
+let searchInput = document.querySelector('#search-input');
+let searchButton = document.querySelector('#search-button');
+
+searchForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent form from refreshing the page
+  let searchWord = searchInput.value;
+  if (window.find(searchWord)) { // search for the word in the page
+    window.scrollTo(0,0); // start searching from the top of the page
+    window.find(searchWord); // move to the location of the word
+  } else {
+    alert('Word not found, try again');
+  }
+});
+
+   </script>
+   <br><br>
+   <br><br>
+
+   <h1><strong>Venus</strong></h1>
+            <br>
+            <p>
+                Venus is the second planet from the sun, and it's often referred to as the Earth's sister planet due to their similar sizes and compositions.
+                However, that's where the similarities end. Venus is a world of extremes, with surface temperatures hot enough to melt lead and an atmosphere thick with toxic gases. 
+                It's also the brightest object in the sky after the sun and moon, earning it the nickname "the morning star" or "the evening star." 
+                Despite its inhospitable nature, Venus has long captivated humans with its enigmatic beauty. 
+                It's a world of mystery and intrigue, and we're only just beginning to unlock its secrets.
+            </p>
+
+            <br><br>
+
+</body>
+</html>

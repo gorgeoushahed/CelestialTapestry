@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Tapestry</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  </head>
+
+<body>
+
+    <header>
+            <div class="navbar">
+              <a href="index.html">Home</a>
+              <div class="dropdown">
+                <button class="dropbtn" onclick="innerFunction()">Inner Planets
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="innerDropdown">
+                  <a href="mercury.html">Mercury</a>
+                  <a href="venus.html">Venus</a>
+                  <a href="earth.html">Earth</a>
+                  <a href="mars.html">Mars</a>
+                </div>
+              </div> 
+              <div class="dropdown">
+                <button class="dropbtn" onclick="outerFunction()">Outer Planets
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="outerDropdown">
+                  <a href="jupiter.html">Jupiter</a>
+                  <a href="saturn.html">Saturn</a>
+                  <a href="uranus.html">Uranus</a>
+                  <a href="neptune.html">Neptune</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn" onclick="othersFunction()">Others
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="othersDropdown">
+                  <a href="sun.html">Sun</a>
+                  <a href="moon.html">Moon</a>
+                  <a href="pluto.html">Pluto</a>
+                </div>
+              </div>
+              <a href="contact.html">Contact</a>
+
+              <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button type="submit" id="search-button">🔍</button>
+              </form>
+
+            </div>
+
+        </header>
+    
+<!--Full Screen Video Background -->
+
+    <video autoplay muted loop id="myVideo">
+        <source src="assets/vid/space2.mp4" type="video/mp4">
+      </video>
+
+     <!--Button to take user to top of page-->
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+
+    <!--JS for the buttons functuality-->
+
+    <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    // Inner dropdown function
+function innerFunction() {
+  document.getElementById("innerDropdown").classList.toggle("show");
+}
+
+// Outer dropdown function
+function outerFunction() {
+  document.getElementById("outerDropdown").classList.toggle("show");
+}
+
+// Others dropdown function
+function othersFunction() {
+  document.getElementById("othersDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var innerDropdown = document.getElementById("innerDropdown");
+    if (innerDropdown.classList.contains('show')) {
+      innerDropdown.classList.remove('show');
+    }
+    var outerDropdown = document.getElementById("outerDropdown");
+    if (outerDropdown.classList.contains('show')) {
+      outerDropdown.classList.remove('show');
+    }
+    var othersDropdown = document.getElementById("othersDropdown");
+    if (othersDropdown.classList.contains('show')) {
+      othersDropdown.classList.remove('show');
+    }
+  }
+}
+
+// Searchb Bar for the page, if a word is not found an error alert will show up
+
+let searchForm = document.querySelector('#search-form');
+let searchInput = document.querySelector('#search-input');
+let searchButton = document.querySelector('#search-button');
+
+searchForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent form from refreshing the page
+  let searchWord = searchInput.value;
+  if (window.find(searchWord)) { // search for the word in the page
+    window.scrollTo(0,0); // start searching from the top of the page
+    window.find(searchWord); // move to the location of the word
+  } else {
+    alert('Word not found, try again');
+  }
+});
+
+// Contact JS code
+
+function sendMessage() {
+  // Get the user's name, email, subject, and message
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var subject = document.getElementById("subject").value;
+  var message = document.getElementById("message").value;
+
+  // Validate the input fields
+  if (name == "") {
+    alert("Please enter your name.");
+    return;
+  }
+  if (email == "") {
+    alert("Please enter your email.");
+    return;
+  }
+  if (subject == "") {
+    alert("Please enter a subject.");
+    return;
+  }
+  if (message == "") {
+    alert("Please enter a message.");
+    return;
+  }
+
+  // Send the message
+  alert("Thank you for contacting me, " + name + "! Your message has been sent.");
+}
+
+    </script>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+  <!--Content starts here-->
+
+  <div id="wrapper">
+    <br>
+    <h1 id="contact-h">Lets Get In Touch</h1>
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Enter your Name"><br>
+      <input type="text" id="email" name="email" placeholder="Enter your Email"><br>
+      <input type="text" id="subject" name="subject" placeholder="Subject"><br>
+      <textarea id="message" name="message" rows="5" cols="30" placeholder="Message"></textarea><br><br>
+      <button type="submit" id="send-button" onclick="sendMessage()">Send Message</button>
+    </form> 
+    <br><br>
+  </div>
+  <br><br><br>
+
+  <footer>
+    <div class="icon-container">
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:blahblahblah@example.com" target="_blank"><i class="fa fa-envelope"></i></a>
+    </div>
+    <br><br>
+    <p>Developed with ❤  by Shahed Almazroua &copy2022</p>
+  </footer>
+<br><br>  
+</body>
+</html>
