@@ -39,19 +39,15 @@ img {
   object-fit: cover;
   z-index: -100;
 }
+.image-container {
+  width: 100%; /* Set the width of the container to 100% */
+  position: relative; /* Position the container relative to its parent element */
+}
 
- /*#sunVideo, #moonVideo, #earthVideo, #venusVideo, #marsVideo, #uranusVideo,
-#mercuryVideo, #jupiterVideo, #saturnVideo, #plutoVideo, #neptuneVideo {
-  position: fixed; 
-  right: 0; 
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -100;
-}*/
+.image-container img {
+  width: 100%; /* Set the width of the image to 100% */
+  height: auto; /* Set the height to auto to maintain the aspect ratio */
+}
 
 /** CSS for the JS button**/
 #myBtn {
@@ -151,33 +147,6 @@ header {
   margin: 0 auto; /* add this line to center the chart horizontally */
 }
 
-/*Table CSS */
-
-table {
-  border-collapse: collapse;
-  width: 70%;
-  text-align: center;
-}
-
-td, th {
-  border: 1px solid #dddddd8c;
-  text-align: left;
-  padding: 8px;
-}
-
-tr {
-  color: white;
-}
-
-/*footer {
-  width: 100%;
-  height: 150px; /* adjust the height as needed */
- /* background-color: rgba(0, 0, 0, 0.5); /* adjust the opacity as needed */
-  /*display: flex;
-  align-items: center;
-  justify-content: center;
-  clear: both;
-} */
 
 #social-links a {
   display: inline-block;
@@ -322,21 +291,29 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar a, .dropdown {
-    display: none;
-  }
-  .navbar {
-    display: flex;
-    justify-content: flex-end;
-  }
+    /* Style the nav bar when the screen is 600px wide or smaller */
+    .navbar {
+      flex-direction: column; /* Stack the links vertically */
+      position: relative; /* Position the nav bar relative to its parent element */
+    }
+  
+    .navbar a {
+      display: block; /* Display each link as a block-level element */
+      margin: 0; /* Remove the margins */
+      width: 100%; /* Make the links fill the entire width of the nav bar */
+    }
   .navbar .icon {
     display: block;
     cursor: pointer;
   }
-  img {
-    width: 100%;
-    height: 100%;
-    background-size: contain;
+  .image-container {
+    height: 200px; /* Set the height of the container */
+    overflow: hidden; /* Hide any overflow */
+  }
+
+  .image-container img {
+    width: auto; /* Set the width to auto to maintain the aspect ratio */
+    height: 100%; /* Set the height to 100% */
   }
   p {
     width: 80%;

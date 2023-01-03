@@ -68,3 +68,15 @@ window.find(searchWord); // move to the location of the word
 alert('Word not found, try again');
 }
 });
+
+//Google tranlsate button
+function translatePage() {
+  // Get the Google Translate element
+  var googleTranslateElement = document.getElementById("google_translate_element");
+
+  // Set the language to Arabic
+  googleTranslateElement.setAttribute("data-target-language", "ar");
+
+  // Execute the translation
+  googleTranslate.TranslateElement(googleTranslateElement);
+}
